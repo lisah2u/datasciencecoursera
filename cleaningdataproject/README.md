@@ -11,7 +11,7 @@ Data for the project were obtained here:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
-This project contains this readme, CodeBook.md which describes how the data is 
+This folder contains this readme, CodeBook.md which describes how the data is 
 is processed, and an R script called run_analysis.R that does the following: 
 
 * Merges the training and the test sets to create one data set.
@@ -22,9 +22,12 @@ measurement.
 * Creates a second, independent tidy data set with the average of each variable 
 for each activity and each subject. 
 
+Pre-requisite libraries:
+* reshape2
+
 To test this this script:
 
-* Clone this repository
+* Download run_analysis.R from this repository
 * Download the zipped data set linked above
-* Unzip it into the cloned responsitory
+* Unzip it into the directory containing run_analysis.R
 * Source run_analysis.R
