@@ -9,15 +9,8 @@ library(ggplot2)
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
-# barplot of four types of emissions per year
-
 as.factor(baltimore$type)
 baltimore <- subset(NEI, NEI$fips =="24510")
-
-point <- subset(NEI, NEI$fips == "24510" & type == "POINT")
-nonpoint <- subset(NEI, NEI$fips == "24510" & type == "NONPOINT")
-onroad <- subset(NEI, NEI$fips == "24510" & type == "ON-ROAD")
-nonroad <- subset(NEI, NEI$fips == "24510" & type == "NON-ROAD")
 
 d <- ggplot(baltimore,aes(x=year, y=Emissions))
 
