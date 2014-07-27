@@ -8,20 +8,15 @@ SCC <- readRDS("Source_Classification_Code.rds")
 df <- merge(NEI, SCC, all.x=TRUE)
 
 baltimore <- subset(df, df$fips =="24510")
-baltimore.emissions <- tapply(baltimore$Emissions, baltimore$year, sum)
 vehicles <- subset(baltimore, grepl("Veh",Short.Name))
-vehicles.emissions <- tapply(vehicles$Emissions, vehicles$year, sum)
-other <- subset(baltimore, !grepl("Veh",Short.Name))
-other.emissions <- tapply(other$Emissions, other$year, sum)
+vehicles.emissions <- aggregate(Emissions ~ year, data=vehicles, FUN=mean)
 
-	
-d <- ggplot(baltimore,aes(x=year, y=Emissions))
+d <- ggplot(vehicles.emissions,aes(x=factor(year), y=Emissions))
 
 d + 
-	geom_point() + geom_smooth(method="lm", col="steelblue") +
-	#coord_cartesian(ylim=c(0,200)) +
+	geom_bar(stat="identity") + 
 	labs(x=" Year") + 
 	labs(y="Emissions") + 
 	labs(title="Motor Vehicle Emissions in Baltimore")
 
-ggsave(filename="plot3.png")
+ggsave(filename="plot5.png")

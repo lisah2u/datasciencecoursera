@@ -1,2 +1,5 @@
 cleaningdataproject/UCI HAR Dataset/*
+.RHistory
+.gitignore
+ExData_Plotting2/pm25_data/*
 
